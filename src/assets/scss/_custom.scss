@@ -1,0 +1,143 @@
+@use "./_variable.scss" as *;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+body,div {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.bg-image {
+  background-color: #068194;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/main-bg.png");
+    // background-size: cover;
+    background-position: center;
+    z-index: 0;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+}
+
+// ==========================
+// 💬 SJ Connect Utility Classes
+// ==========================
+
+.primary {
+  color: $primary !important;
+}
+
+.bg-primary {
+  background-color: $primary !important;
+}
+
+.primary-dark {
+  color: $primary-dark !important;
+}
+
+.bg-primary-dark {
+  background-color: $primary-dark !important;
+}
+
+.accent {
+  color: $accent !important;
+}
+
+.bg-accent {
+  background-color: $accent !important;
+}
+
+.text-primary {
+  color: $text-primary !important;
+}
+
+.text-secondary {
+  color: $text-secondary !important;
+}
+
+.bg-surface {
+  background-color: $surface !important;
+}
+
+.bg-background {
+  background-color: $background !important;
+}
+
+.border-primary {
+  border: 1px solid $primary !important;
+}
+
+.border-accent {
+  border: 1px solid $accent !important;
+}
+
+.border {
+  border: 1px solid $border !important;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &-teal {
+    background-color: $primary;
+    color: white;
+
+    &:hover {
+      background-color: $primary-dark;
+    }
+  }
+
+  &-accent {
+    background-color: $accent;
+    color: white;
+
+    &:hover {
+      background-color: #e53e3e; // Darker version of accent color
+    }
+  }
+
+  &-black {
+    background-color: black;
+    color: white;
+
+    &:hover {
+      background-color: #1a1a1a; // Slightly lighter than black
+    }
+  }
+
+  &-outline {
+    background-color: transparent;
+    border: 2px solid $primary;
+    color: $primary;
+
+    &:hover {
+      background-color: $primary;
+      color: white;
+    }
+  }
+
+  &-block {
+    width: 100%;
+  }
+}
