@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chat Application — Frontend
 
-## Getting Started
+## Overview
 
-First, run the development server:
+A **real-time chat application frontend** built with modern web technologies. This frontend connects to a backend server for messaging and user management.
+
+- **Backend Repository**: [https://github.com/Shikha115/chat-application-backend](https://github.com/Shikha115/chat-application-backend)
+- **Frontend Repository**: [https://github.com/Shikha115/chat-application-frontend](https://github.com/Shikha115/chat-application-frontend)
+
+## Features
+
+- **Real-time Messaging**: Instant message delivery using WebSockets via Socket.IO.
+- **User Authentication**: Secure login and registration.
+- **Group Chats**: Create and manage group conversations.
+- **Responsive Design**: Optimized for desktop and mobile devices.
+- **Notifications**: Real-time badges for unread messages.
+
+## Tech Stack
+
+- **Next.js**: React framework for SSR and routing.
+- **TypeScript**: Typed JavaScript.
+- **Chakra UI**: Component library.
+- **SCSS**: Styling preprocessor.
+- **Zustand**: State management.
+- **Socket.IO Client**: Real-time communication.
+- **Axios**: HTTP client.
+
+## Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/Shikha115/chat-application-frontend.git
+   cd chat-application-frontend
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+## Environment Setup
+
+Create `.env.local` and set:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
+
+## Running the Application
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+1. Fork the repo.
+2. Create a feature branch.
+3. Commit changes.
+4. Open a Pull Request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Sneak a Look
+![alt text](image.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License. See [LICENSE](../LICENSE) file.
