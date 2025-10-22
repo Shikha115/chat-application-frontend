@@ -39,3 +39,5 @@ coverage/
 
 # Misc
 thumbs.db
+
+package-lock.json
