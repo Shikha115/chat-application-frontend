@@ -75,7 +75,7 @@ const SingleChat = () => {
           content: newMessage,
           chat: selectedChat?._id as string,
         });
-        console.log("Message sent:", data);
+        // console.log("Message sent:", data);
         setNewMessage("");
         socket.emit("new message", data.data);
       } catch (error) {
@@ -113,7 +113,7 @@ const SingleChat = () => {
       ) {
         if (!notifications.find((n) => n._id === newMessageRecieved._id)) {
           setNotifications([newMessageRecieved, ...notifications]);
-          console.log("New message notification:", newMessageRecieved);
+          // console.log("New message notification:", newMessageRecieved);
         }
       } else {
         console.log("Refetching messages");
@@ -127,7 +127,7 @@ const SingleChat = () => {
     if (!socketConnected) return;
     if (!typing) {
       setTyping(true);
-      console.log("emit typing");
+      // console.log("emit typing");
       socket.emit("typing", selectedChat?._id);
     }
     const lastTypingTime = new Date().getTime();

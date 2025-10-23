@@ -127,7 +127,7 @@ const UpdateGroupChatModal = () => {
           ? (getData as any)?._doc
           : getData;
         setSelectedChat(filterData as IChat);
-        console.log(filterData, "data.data in addToGroup");
+        // console.log(filterData, "data.data in addToGroup");
         toaster.create({
           title: "User Added",
           description: data.message,
@@ -205,7 +205,7 @@ const UpdateGroupChatModal = () => {
           ? (getData as any)?._doc
           : getData;
         setSelectedChat(filterData as IChat);
-        console.log(filterData, "data.data in removeFromGroup");
+        // console.log(filterData, "data.data in removeFromGroup");
 
         const isSelfRemoval = userId === user?._id;
         toaster.create({
@@ -233,7 +233,7 @@ const UpdateGroupChatModal = () => {
     }
   };
 
-  console.log(selectedChat, "selectedChat");
+  // console.log(selectedChat, "selectedChat");
 
   return (
     <>

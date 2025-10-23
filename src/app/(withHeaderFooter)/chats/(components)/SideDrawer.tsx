@@ -55,7 +55,7 @@ function SideDrawer() {
       const { data } = await accessChat(userId as string);
       if (data.message) {
         const arr = data.data as IChat;
-        console.log("Chat accessed successfully", data);
+        // console.log("Chat accessed successfully", data);
         setIsOpen(false);
         setSelectedChat(arr);
         if (!chats.find((item) => item._id === arr._id)) {
@@ -76,7 +76,7 @@ function SideDrawer() {
     }
   };
 
-  console.log(notifications, "notifications");
+  // console.log(notifications, "notifications");
 
   return (
     <>
