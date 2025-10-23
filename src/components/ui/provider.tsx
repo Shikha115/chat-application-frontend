@@ -3,7 +3,6 @@
 import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 import { ColorModeProvider, type ColorModeProviderProps } from "./color-mode";
 import type { ReactNode } from "react";
-import { useEffect } from "react";
 
 interface UiProviderProps extends ColorModeProviderProps {
   children?: ReactNode;
