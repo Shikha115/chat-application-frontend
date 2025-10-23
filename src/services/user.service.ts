@@ -60,6 +60,7 @@ export const useGetCurrentUser = () => {
   return useQuery({
     queryKey: ["get", "currentUser"],
     queryFn: () => api.getCurrentUser().then((res) => res.data.data),
+    enabled: true,
   });
 };
 
