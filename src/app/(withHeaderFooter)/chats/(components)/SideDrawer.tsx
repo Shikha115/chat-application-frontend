@@ -26,7 +26,6 @@ import { useRouter } from "next/navigation";
 import ProfileImg from "@/src/components/ui/ProfileImg";
 import { IChat, useAccessChat } from "@/src/services/chat.service";
 import { useChatStore } from "@/src/store/chatStore";
-import { getSender } from "@/src/components/logics/chat.logic";
 
 function SideDrawer() {
   const router = useRouter();

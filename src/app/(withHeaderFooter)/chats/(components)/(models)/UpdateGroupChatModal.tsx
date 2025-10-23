@@ -14,7 +14,7 @@ import {
   Portal,
   CloseButton,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import UserBadgeItem from "../UserBadgeItem";
 import UserListItem from "../UserListItem";
 import { IUser, useGetByName } from "@/src/services/user.service";

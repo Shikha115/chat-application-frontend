@@ -2,7 +2,6 @@
 
 import { useUserStore } from "@/src/store/userStore";
 import { Box } from "@chakra-ui/react";
-import { useState } from "react";
 import SideDrawer from "./(components)/SideDrawer";
 import MyChats from "./(components)/MyChats";
 import Chatbox from "./(components)/Chatbox";

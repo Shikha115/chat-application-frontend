@@ -41,8 +41,7 @@ export const useSendMessages = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: api.sendMessage,
-    onSuccess: (data) => {
-       const chatId = (data?.data as IMessage).chat;
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["get", "messages"] });
       queryClient.invalidateQueries({ queryKey: ["get", "chats"] });
     },

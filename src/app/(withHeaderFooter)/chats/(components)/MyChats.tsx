@@ -1,11 +1,8 @@
 "use client";
 
-import { FaPlus } from "react-icons/fa";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ChatLoading from "./ChatLoading";
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
-import { toaster } from "@/src/components/ui/toaster";
 import { useUserStore } from "@/src/store/userStore";
 import GroupChatModal from "./(models)/GroupChatModal";
 import { IUser } from "@/src/services/user.service";

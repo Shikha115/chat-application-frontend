@@ -7,7 +7,6 @@ import { Tooltip } from "@/src/components/ui/tooltip";
 import { IMessage } from "@/src/services/message.service";
 import { generateFilePath } from "@/src/services/url.service";
 import { IUser } from "@/src/services/user.service";
-import { useChatStore } from "@/src/store/chatStore";
 import { useUserStore } from "@/src/store/userStore";
 import { Avatar } from "@chakra-ui/react";
 import ScrollableFeed from "react-scrollable-feed";
@@ -16,7 +15,7 @@ import ScrollableFeed from "react-scrollable-feed";
 // profile picture will be shown at the end of all messages
 const ScrollableChat = ({ messages }: { messages: IMessage[] }) => {
   const { user } = useUserStore();
-  const {  selectedChat } = useChatStore();
+
 
  
   return (

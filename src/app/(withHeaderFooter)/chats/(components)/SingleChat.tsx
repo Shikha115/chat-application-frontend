@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaArrowLeft, FaEye } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 import Lottie from "react-lottie";
 import io, { Socket } from "socket.io-client";
 import { toaster } from "@/src/components/ui/toaster";
@@ -27,9 +27,8 @@ import {
   useSendMessages,
 } from "@/src/services/message.service";
 import { Base_Url } from "@/src/services/url.service";
-import { IChat } from "@/src/services/chat.service";
 const ENDPOINT = Base_Url;
-var socket: Socket;
+let socket: Socket;
 
 const SingleChat = () => {
   const [newMessage, setNewMessage] = useState("");
@@ -80,6 +79,7 @@ const SingleChat = () => {
         setNewMessage("");
         socket.emit("new message", data.data);
       } catch (error) {
+        console.log("Error sending message:", error);
         toaster.create({
           title: "Error Occured!",
           description: "Failed to send the Message",
@@ -130,11 +130,11 @@ const SingleChat = () => {
       console.log("emit typing");
       socket.emit("typing", selectedChat?._id);
     }
-    let lastTypingTime = new Date().getTime();
-    var timerLength = 3000;
+    const lastTypingTime = new Date().getTime();
+    const timerLength = 3000;
     setTimeout(() => {
-      var timeNow = new Date().getTime();
-      var timeDiff = timeNow - lastTypingTime;
+      const timeNow = new Date().getTime();
+      const timeDiff = timeNow - lastTypingTime;
       if (timeDiff >= timerLength && typing) {
         socket.emit("stop typing", selectedChat?._id); // stop typing after 3 seconds
         setTyping(false);

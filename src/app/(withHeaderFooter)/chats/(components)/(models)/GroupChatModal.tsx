@@ -1,7 +1,6 @@
 "use client";
 
 import { toaster } from "@/src/components/ui/toaster";
-import { useUserStore } from "@/src/store/userStore";
 import { Button, Input, Dialog, Portal, CloseButton } from "@chakra-ui/react";
 import { useState } from "react";
 import UserListItem from "../UserListItem";
@@ -13,10 +12,9 @@ const GroupChatModal = ({ children }: { children: React.ReactNode }) => {
   const [groupChatName, setGroupChatName] = useState("");
   const [selectedUsers, setSelectedUsers] = useState<IUser[]>([]);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const { user } = useUserStore.getState();
+
   const { data: searchResult, isLoading } = useGetByName(search);
   const { mutateAsync: createGroupChat } = useCreateGroupChat();
 

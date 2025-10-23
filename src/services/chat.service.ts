@@ -103,7 +103,7 @@ export const useUpdateChatById = () => {
 
   return useMutation({
     mutationFn: api.updateById,
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["get", "chats"] }); // fetchs chats of current user if a group chat is updated
       queryClient.invalidateQueries({ queryKey: ["get", "messages"] }); // fetches messages when chat is updated
     },
@@ -116,7 +116,7 @@ export const useRemoveFromGroup = () => {
 
   return useMutation({
     mutationFn: api.removeFromGroup,
-    onSuccess: (data) => {
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["get", "chats"] });
       queryClient.invalidateQueries({ queryKey: ["get", "messages"] }); // fetches messages when chat is updated
     },

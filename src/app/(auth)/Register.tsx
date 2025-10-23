@@ -3,11 +3,10 @@
 import { toaster } from "@/src/components/ui/toaster";
 import { useRegisterUser } from "@/src/services/user.service";
 import { Button, Field, Fieldset, Input, Stack } from "@chakra-ui/react";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Register({ setActiveTab }: { setActiveTab: (tab: string) => void }) {
-  const router = useRouter();
+
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

@@ -1,6 +1,5 @@
 import { IMessage } from "@/src/services/message.service";
 import { IUser } from "@/src/services/user.service";
-import { useUserStore } from "@/src/store/userStore";
 
 export const getSender = (loggedUser: IUser, users: IUser[]) => {
   return users.find((u) => u._id !== loggedUser._id) || "Unknown User";
