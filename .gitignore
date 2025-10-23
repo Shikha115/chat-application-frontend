@@ -41,3 +41,4 @@ coverage/
 thumbs.db
 
 package-lock.json
+yarn.lock
