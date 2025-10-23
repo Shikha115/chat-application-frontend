@@ -16,8 +16,6 @@ import ScrollableFeed from "react-scrollable-feed";
 const ScrollableChat = ({ messages }: { messages: IMessage[] }) => {
   const { user } = useUserStore();
 
-
- 
   return (
     <ScrollableFeed className="flex flex-col gap-1">
       {messages &&
@@ -39,7 +37,7 @@ const ScrollableChat = ({ messages }: { messages: IMessage[] }) => {
                   >
                     <div className="">
                       <Avatar.Fallback>
-                        {(sender?.name as string)?.[0]}S
+                        {(sender?.name as string)}
                       </Avatar.Fallback>
                       <Avatar.Image
                         src={generateFilePath(sender?.pic as File)}
@@ -76,7 +74,8 @@ const ScrollableChat = ({ messages }: { messages: IMessage[] }) => {
 
 export default ScrollableChat;
 
-{/* {selectedChat?.isGroupChat && (
+{
+  /* {selectedChat?.isGroupChat && (
   <div className="flex justify-center !text-[14px] !font-medium">
     {addedUser && (
       <div className="flex items-center gap-1 justify-center bg-primary py-1 px-2  text-white rounded-xl text-center w-[50%] mx-auto">
@@ -91,4 +90,5 @@ export default ScrollableChat;
       </div>
     )}
   </div>
-)} */}
+)} */
+}
