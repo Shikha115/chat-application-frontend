@@ -36,9 +36,10 @@ const ScrollableChat = ({ messages }: { messages: IMessage[] }) => {
                     border="2px solid #fff"
                   >
                     <div className="">
-                      <Avatar.Fallback>
+                      {/* <Avatar.Fallback>
                         {(sender?.name as string)}
-                      </Avatar.Fallback>
+                      </Avatar.Fallback> */}
+                      <Avatar.Fallback name={sender?.name} />
                       <Avatar.Image
                         src={generateFilePath(sender?.pic as File)}
                         alt={sender?.name as string}
