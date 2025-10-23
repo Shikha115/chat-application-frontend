@@ -137,7 +137,7 @@ export default function Register({ setActiveTab }: { setActiveTab: (tab: string)
         </Field.Root>
 
         <Field.Root>
-          <Field.Label>Upload Image</Field.Label>
+          <Field.Label>Upload Image (Optional)</Field.Label>
           <Input
             type="file"
             accept="image/*"
