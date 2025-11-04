@@ -2,7 +2,6 @@
 import { toaster } from "@/src/components/ui/toaster";
 import { ILogin, useForgetPassword } from "@/src/services/user.service";
 import { Button, Field, Fieldset, Input, Stack } from "@chakra-ui/react";
-import Link from "next/link";
 import { useState } from "react";
 
 export default function ForgotPassword({

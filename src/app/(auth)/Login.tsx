@@ -4,7 +4,6 @@ import { toaster } from "@/src/components/ui/toaster";
 import { ILogin, IUser, useLoginUser } from "@/src/services/user.service";
 import { useUserStore } from "@/src/store/userStore";
 import { Button, Field, Fieldset, Input, Stack } from "@chakra-ui/react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

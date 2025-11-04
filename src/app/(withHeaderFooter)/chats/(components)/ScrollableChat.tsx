@@ -34,11 +34,11 @@ const ScrollableChat = ({ messages }: { messages: IMessage[] }) => {
   return (
     <ScrollableFeed className="flex flex-col gap-1">
       {grouped &&
-        grouped.map(([date, msgs], gIdx) => {
+        grouped.map(([date, msgs]) => {
           return (
             <div key={date} className="flex flex-col gap-2">
               <span className="text-center !font-medium rounded-full !px-3 !py-[3px] !mt-2 !text-[11px] bg-white w-max !mx-auto">{date}</span>
-              {msgs.map(({ msg, idx }, j) => {
+              {msgs.map(({ msg, idx }) => {
                 const sender = msg?.sender as IUser;
                 const showAvatar =
                   isSameSender(msg, idx, messages, user?._id as string) ||

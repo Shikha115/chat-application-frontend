@@ -83,7 +83,7 @@ export default function Homepage() {
   );
 }
 
-export const LogoTitle = () => {
+const LogoTitle = () => {
   return (
     <Box
       p={5}
