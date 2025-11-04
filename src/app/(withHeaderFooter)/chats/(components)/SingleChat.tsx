@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import Lottie from "react-lottie";
 import io, { Socket } from "socket.io-client";
@@ -11,6 +11,7 @@ import {
   Fieldset,
   IconButton,
   Input,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
 import ProfileModal from "./(models)/ProfileModal";
@@ -143,7 +144,7 @@ const SingleChat = () => {
   };
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       {selectedChat ? (
         <>
           <div className="flex items-center justify-between flex-1 w-full">
@@ -204,23 +205,23 @@ const SingleChat = () => {
             overflowY="hidden"
           >
             {loading ? (
-              // <Spinner
-              //   size="xl"
-              //   w={20}
-              //   h={20}
-              //   alignSelf="center"
-              //   margin="auto"
-              // />
-              <Box
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                h="100%"
-              >
-                <Text fontSize="3xl" pb={3}>
-                  Start your first conversation
-                </Text>
-              </Box>
+              <Spinner
+                size="xl"
+                w={20}
+                h={20}
+                alignSelf="center"
+                margin="auto"
+              />
+              // <Box
+              //   display="flex"
+              //   alignItems="center"
+              //   justifyContent="center"
+              //   h="100%"
+              // >
+              //   <Text fontSize="3xl" pb={3}>
+              //     Start your first conversation
+              //   </Text>
+              // </Box>
             ) : (
               <div className="messages !mb-3 h-[inherit] !pt-[3pc]">
                 <ScrollableChat messages={messages as IMessage[]} />
@@ -275,7 +276,7 @@ const SingleChat = () => {
           </Text>
         </Box>
       )}
-    </>
+    </Suspense>
   );
 };
 

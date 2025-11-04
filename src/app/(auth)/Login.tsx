@@ -3,19 +3,17 @@
 import { toaster } from "@/src/components/ui/toaster";
 import { ILogin, IUser, useLoginUser } from "@/src/services/user.service";
 import { useUserStore } from "@/src/store/userStore";
-import {
-  Button,
-  Field,
-  Fieldset,
-  Input,
-  Stack,
-} from "@chakra-ui/react";
+import { Button, Field, Fieldset, Input, Stack } from "@chakra-ui/react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function Login() {
-
-  const router = useRouter()
+export default function Login({
+  setForgotPassword,
+}: {
+  setForgotPassword: (value: boolean) => void;
+}) {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -26,6 +24,7 @@ export default function Login() {
   const reset = () => {
     setEmail("");
     setPassword("");
+    setShowPassword(false);
   };
 
   const submitHandler = async () => {
@@ -61,7 +60,7 @@ export default function Login() {
         "Something went wrong";
 
       toaster.create({
-        title: "Registration failed",
+        title: "Login failed",
         description: message,
         type: "error",
         duration: 5000,
@@ -78,7 +77,15 @@ export default function Login() {
         </Field.Root>
 
         <Field.Root>
-          <Field.Label>Password</Field.Label>
+          <Field.Label className="flex items-center justify-between w-full">
+            Password
+            <span
+              onClick={() => setForgotPassword(true)}
+              className="font-bold !text-blue-500 cursor-pointer"
+            >
+              Forgot Password
+            </span>
+          </Field.Label>
           <div className="relative w-full">
             <Input
               type={showPassword ? "text" : "password"}
@@ -96,7 +103,7 @@ export default function Login() {
           </div>
         </Field.Root>
 
-        <Field.Root className="!items-center">
+        {/* <Field.Root className="!items-center">
           <Field.Label
             onClick={() => {
               setEmail("guest@example.com");
@@ -106,7 +113,7 @@ export default function Login() {
           >
             Get <span>Guest User</span> Credentials
           </Field.Label>
-        </Field.Root>
+        </Field.Root> */}
 
         <Button
           onClick={submitHandler}

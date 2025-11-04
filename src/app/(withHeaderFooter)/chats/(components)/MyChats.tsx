@@ -85,7 +85,7 @@ const MyChats = () => {
                   user={getSender(user as IUser, chat.users) as IUser}
                 />
                 <div>
-                  <Text>
+                  <Text className="!capitalize">
                     {!chat.isGroupChat
                       ? (getSender(user as IUser, chat.users) as IUser)?.name
                       : chat.chatName}

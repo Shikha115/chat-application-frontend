@@ -27,17 +27,34 @@ const UserApiHook = () => {
       data
     );
   };
+
+  const forgetPassword = async (data: ILogin) => {
+    return axios.patch<GeneralApiResponse>(
+      `${API_Url}${prefix}/forget-password`,
+      data
+    );
+  };
+
   const getCurrentUser = async () => {
     return authAxios.get<GeneralApiResponse<IUser>>(`${prefix}/getCurrentUser`);
   };
-  const getByName = async (name:string) => {
-    return authAxios.get<GeneralApiResponse<IUser[]>>(`${prefix}/getByName/${name}`);
+  const getByName = async (name: string) => {
+    return authAxios.get<GeneralApiResponse<IUser[]>>(
+      `${prefix}/getByName/${name}`
+    );
   };
-  const getById = async (id:string) => {
+  const getById = async (id: string) => {
     return authAxios.get<GeneralApiResponse<IUser>>(`${prefix}/${id}`);
   };
 
-  return { register, login, getCurrentUser, getByName, getById };
+  return {
+    register,
+    login,
+    getCurrentUser,
+    getByName,
+    getById,
+    forgetPassword,
+  };
 };
 
 export const useRegisterUser = () => {
@@ -53,6 +70,12 @@ export const useLoginUser = () => {
     mutationFn: api.login,
   });
 };
+export const useForgetPassword = () => {
+  const api = UserApiHook();
+  return useMutation({
+    mutationFn: api.forgetPassword,
+  });
+};
 
 export const useGetCurrentUser = () => {
   const api = UserApiHook();
@@ -60,7 +83,7 @@ export const useGetCurrentUser = () => {
   return useQuery({
     queryKey: ["get", "currentUser"],
     queryFn: () => api.getCurrentUser().then((res) => res.data.data),
-    enabled: true,
+    enabled: false,
   });
 };
 

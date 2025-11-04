@@ -2,6 +2,7 @@ import authAxios, { GeneralApiResponse } from "./url.service";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { IUser } from "./user.service";
 import { IMessage } from "./message.service";
+import axios from "axios";
 const prefix = "/chat";
 
 export interface IChat {
@@ -52,6 +53,9 @@ const ChatApiHook = () => {
       obj
     );
   };
+  const fetchJsonData = async () => {
+    return axios.get(`'https://jsonplaceholder.typicode.com/todos/1'`);
+  };
 
   return {
     fetchChats,
@@ -60,7 +64,18 @@ const ChatApiHook = () => {
     updateById,
     removeFromGroup,
     addToGroup,
+    fetchJsonData,
   };
+};
+
+export const useFetchTodos = () => {
+  const api = ChatApiHook();
+
+  return useQuery({
+    queryKey: ["get", "todos"],
+    queryFn: () => api.fetchJsonData().then((res) => res.data.data),
+    enabled: true,
+  });
 };
 
 export const useFetchChats = () => {
